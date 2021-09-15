@@ -1,0 +1,49 @@
+@use '../abstracts' as a;
+
+//  Site-wide styles
+body {
+  @include a.dc(a.$bg-dark);
+}
+
+section {
+  padding-block: min(10vh, 10rem);
+}
+
+.draggable-list {
+  border: a.$base-border-thickness * 2 solid var(--clr-purples-300);
+
+  li {
+    list-style-type: none;
+    flex: 1;
+
+    &:not(:last-of-type) {
+      border-bottom: a.$base-border-thickness solid var(--clr-purples-200);
+    }
+
+    &.correct .country-name {
+      color: var(--clr-greens-300);
+    }
+
+    &.incorrect .country-name {
+      color: var(--clr-reds-300);
+    }
+
+    &.over {
+      background-color: var(--clr-purples-400);
+    }
+  }
+
+  .number {
+    width: 60px;
+    height: 60px;
+  }
+
+  .draggable-item {
+    cursor: pointer;
+    flex: 1;
+  }
+}
+
+.check-btn:active {
+  transform: scale(0.98);
+}

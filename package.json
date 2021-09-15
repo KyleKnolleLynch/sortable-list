@@ -1,0 +1,17 @@
+{
+  "name": "sortable-list",
+  "version": "1.0.0",
+  "description": "drag and drop sortable list",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "Kyle Lynch",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.39.2"
+  }
+}

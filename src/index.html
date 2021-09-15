@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="index.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="scss/main.scss"
+      media="print"
+      onload="this.media='all';this.onload=null"
+    />
+    <noscript><link rel="stylesheet" href="scss/main.scss" /></noscript>
+    <title>Sortable List</title>
+  </head>
+  <body>
+    <main class="display-f column align-center">
+      <h1 class="text-purples-300 font-size-600 mt-1">10 Largest Countries</h1>
+      <h2 class='font-size-300 text-purples-300'>(by land mass)</h2>
+      <p class="font-size-300 mt-1">
+        Drag and drop the items into their correct order
+      </p>
+
+      <ul id="draggable-list" class="draggable-list p-0"></ul>
+      <button class="check-btn btn btn-outlined-purples-300 mt-2" id="check-btn">
+        Check Order
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-send"
+        >
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </main>
+  </body>
+</html>

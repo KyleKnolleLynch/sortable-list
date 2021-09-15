@@ -1,0 +1,55 @@
+@use '../abstracts'as a;
+
+//  Generate utility classes
+@each $property, $map in a.$utilities {
+  $prefix: map-get($map, 'prefix');
+  $values: map-get($map, 'values');
+
+  @each $k, $v in $values {
+    @if ($k == 'default') {
+      .#{$prefix} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$prefix}-#{$k} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
+
+//  Generate color classes
+@each $key, $val in a.$colors {
+  @each $k, $v in $val {
+    .text-#{$key}-#{$k} {
+      color: $v;
+    }
+    .bg-#{$key}-#{$k} {
+      background-color: $v;
+    }
+    .text-hover-#{$key}-#{$k} {
+      &:hover {
+        color: $v;
+      }
+    }
+  }
+}
+
+//  Generate font size classes that scale with media queries 
+@each $screen-size, $size in a.$type-scale {
+  @if $screen-size == sm {
+    @each $size, $val in $size {
+      .font-size-#{$size} {
+        font-size: $val;
+      }
+    }
+  } @else {
+    @include a.mq(lg) {
+      @each $size, $val in $size {
+        .font-size-#{$size} {
+          font-size: $val;
+        }
+      }
+    }
+  }
+}

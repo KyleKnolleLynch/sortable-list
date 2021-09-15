@@ -1,0 +1,49 @@
+@use '../abstracts' as a;
+
+* {
+  font-family: a.$font-alaska;
+}
+
+body {
+  font-size: var(--fs-400);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+.h1 {
+  font-size: var(--fs-800);
+}
+
+h2,
+.h2 {
+  font-size: var(--fs-700);
+}
+
+h3,
+.h3 {
+  font-size: var(--fs-600);
+}
+
+h4,
+.h4 {
+  font-size: var(--fs-500);
+}
+
+small {
+  font-size: var(--fs-300);
+}
+
+a {
+  color: var(--clr-primary-400);
+
+  &:hover,
+  &:focus {
+    color: var(--clr-primary-500);
+    text-decoration: none;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

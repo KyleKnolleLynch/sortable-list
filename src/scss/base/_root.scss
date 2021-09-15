@@ -1,0 +1,25 @@
+@use '../abstracts';
+
+:root {
+  //  Generate colors custom properties
+  @each $key, $value in abstracts.$colors {
+    @each $k, $v in $value {
+      --clr-#{$key}-#{$k}: #{$v};
+    }
+  }
+
+  //  Generate font-size custom properties that scale with media queries
+  @each $screen-size, $font-size in abstracts.$type-scale {
+    @if $screen-size == sm {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include abstracts.mq(lg) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+}

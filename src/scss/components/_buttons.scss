@@ -1,0 +1,27 @@
+@use '../abstracts' as a;
+
+.btn {
+  @include a.btn;
+}
+
+@each $key, $val in a.$colors {
+  @each $k, $v in $val {
+    .btn-#{$key}-#{$k} {
+      color: a.dyna-clr($v);
+      &:hover {
+        background-color: lighten($v, 10);
+      }
+      @include a.btn($v);
+    }
+
+    .btn-outlined-#{$key}-#{$k} {
+      @include a.btn(rgba(0, 0, 0, 0));
+      border: a.$base-border-thickness solid $v;
+      color: $v;
+      &:hover {
+        background-color: $v;
+        color: a.dyna-clr($v);
+      }
+    }
+  }
+}

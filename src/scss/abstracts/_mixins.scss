@@ -1,0 +1,48 @@
+@use 'functions' as f;
+@use 'variables' as v;
+@use '../utilities/breakpoints' as b;
+
+// Button styles
+@mixin btn($btn-bg-color: #e2e2e2) {
+  font-size: var(--fs-300);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: v.$base-padding v.$base-padding * 2;
+  border-radius: v.$base-border-radius;
+  background-color: $btn-bg-color;
+}
+
+//  Dynamic text color
+@mixin dc($color) {
+  background-color: $color;
+  color: f.dyna-clr($color);
+}
+
+//  Labels - error, notification, warning
+@mixin label($color) {
+  font-size: var(--fs-300);
+  text-align: center;
+  display: inline-block;
+  margin: v.$base-margin;
+  padding: v.$base-padding * 0.6 v.$base-padding * 2;
+  color: $color;
+  border: solid v.$base-border-thickness $color;
+  border-radius: v.$base-border-radius;
+}
+
+//  Media queries
+@mixin mq($key) {
+  $size: map-get(b.$breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin custom-mq($bp: 0) {
+  @media only screen and (min-width: $bp) {
+    @content;
+  }
+}

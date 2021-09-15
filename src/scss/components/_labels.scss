@@ -1,0 +1,16 @@
+@use '../abstracts' as a;
+
+//  Error
+.error {
+  @include a.label(a.$error);
+}
+
+//  Notification
+.notification {
+  @include a.label(a.$info);
+}
+
+//  Warning
+.warning {
+  @include a.label(a.$warning);
+}
